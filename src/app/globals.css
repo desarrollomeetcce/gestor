@@ -24,3 +24,58 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@layer utilities {
+  .bg-moving-clouds {
+    background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 40%);
+    background-size: 200% 200%;
+    animation: cloudMove 40s ease-in-out infinite;
+  }
+
+  @keyframes cloudMove {
+    0% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    100% {
+      background-position: 0% 0%;
+    }
+  }
+}
+
+@layer utilities {
+  .animate-pulse-particles {
+    animation: floatBlob 14s ease-in-out infinite;
+  }
+
+  @keyframes floatBlob {
+    0% {
+      transform: translate(0, 0) scale(1);
+    }
+    50% {
+      transform: translate(10px, -20px) scale(1.1);
+    }
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+  }
+}
+
+/* global.css o en tu layout */
+:root {
+  --rdp-accent-color: #2563eb; /* azul Tailwind */
+  --rdp-background-color: #1e293b; /* slate-800 */
+  --rdp-color: white;
+  --rdp-cell-size: 40px;
+}
+
+.rdp {
+  background-color: var(--rdp-background-color);
+  color: var(--rdp-color);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}

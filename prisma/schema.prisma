@@ -1,0 +1,84 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              Int       @id @default(autoincrement())
+  name            String
+  email           String    @unique
+  password        String
+  profileId       Int
+  profile         Profile   @relation(fields: [profileId], references: [id])
+  isSuperAdmin    Boolean   @default(false)
+  customRate      Float?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  linksSharedToMe Link[]    @relation("SharedWithUsers")
+  linksOwned      Link[]    @relation("UserOwnedLinks")
+  workLog         WorkLog[] @relation("Owner")
+  asignedWorklogs WorkLog[] @relation("AssignedBy")
+
+  aproved WorkLog[] @relation("ApprovedBy")
+}
+
+model Profile {
+  id          Int          @id @default(autoincrement())
+  name        String       @unique
+  defaultRate Float
+  users       User[]
+  permissions Permission[]
+  links       Link[]       @relation("SharedWithProfiles")
+}
+
+model Permission {
+  id       Int       @id @default(autoincrement())
+  name     String    @unique
+  profiles Profile[]
+}
+
+model Link {
+  id       Int       @id @default(autoincrement())
+  title    String
+  url      String
+  typeId   Int
+  type     LinkType  @relation(fields: [typeId], references: [id])
+  ownerId  Int
+  owner    User      @relation("UserOwnedLinks", fields: [ownerId], references: [id])
+  users    User[]    @relation("SharedWithUsers")
+  profiles Profile[] @relation("SharedWithProfiles")
+}
+
+model LinkType {
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+  links Link[]
+}
+
+model WorkLog {
+  id          Int      @id @default(autoincrement())
+  user        User     @relation("Owner", fields: [userId], references: [id])
+  userId      Int
+  date        DateTime
+  hours       Float
+  description String?
+
+  assignedBy Int? // Admin que asignó
+  assigned   User? @relation("AssignedBy", fields: [assignedBy], references: [id])
+
+  approvedBy Int?
+  approved   User? @relation("ApprovedBy", fields: [approvedBy], references: [id])
+
+  costPerHour Float? // congelado al momento de asignar
+  totalCost   Float? // hours * costPerHour
+  paid        Boolean @default(false)
+  locked      Boolean @default(false)
+
+  createdAt DateTime @default(now())
+
+  @@unique([userId, date], name: "userId_date")
+}
