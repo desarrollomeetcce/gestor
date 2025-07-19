@@ -1,9 +1,16 @@
+// lib/prisma.ts
 import { PrismaClient } from '@prisma/client';
 
-const globalForPrisma = globalThis as unknown as {
-  prisma: PrismaClient | undefined;
-};
+let prisma: PrismaClient;
 
-export const prisma = globalForPrisma.prisma ?? new PrismaClient();
+if (process.env.NODE_ENV === 'production') {
+  prisma = new PrismaClient();
+} else {
+  // Evita múltiples instancias en desarrollo con Next.js
+  if (!(global as any).prisma) {
+    (global as any).prisma = new PrismaClient();
+  }
+  prisma = (global as any).prisma;
+}
 
-if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;
+export { prisma };
