@@ -1,7 +1,7 @@
 'use server'
 
-import { prisma } from '@/lib/prisma'
-import { withActionWrapper } from '@/utils/actions'
+import { prisma } from '@/app/lib/prisma'
+import { withActionWrapper } from '@/app/utils/actions'
 import bcrypt from 'bcryptjs';
 
 

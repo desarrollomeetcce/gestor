@@ -1,10 +1,10 @@
 'use server';
 
-import { getUserFromCookie } from '@/lib/auth';
-import { prisma } from '@/lib/prisma';
-import { withActionWrapper } from '@/utils/actions';
+import { getUserFromCookie } from '@/app/lib/auth';
+import { prisma } from '@/app/lib/prisma'
+import { withActionWrapper } from '@/app/utils/actions';
 
-import { ERROR, SUCCESS } from '@/utils/constants';
+import { ERROR, SUCCESS } from '@/app/utils/constants';
 
 export async function createLinkAction(_: any, formData: FormData) {
     return withActionWrapper(async () => {

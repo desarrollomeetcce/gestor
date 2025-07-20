@@ -1,8 +1,8 @@
 'use server';
 
 
-import { getSessionUser } from '@/lib/auth';
-import { prisma } from '@/lib/prisma';
+import { getSessionUser } from '@/app/lib/auth';
+import { prisma } from '@/app/lib/prisma'
 import LinksPageClient from './components/form';
 
 

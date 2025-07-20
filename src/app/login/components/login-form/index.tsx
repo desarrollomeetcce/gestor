@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { Eye, EyeOff } from 'lucide-react';
 import { loginAction } from '../../application/login';
 import { useRouter } from 'next/navigation';
-import { SUCCESS } from '@/utils/constants';
+import { SUCCESS } from '@/app/utils/constants';
 
 export default function LoginPage() {
     const [formState, formAction] = useActionState(loginAction, null);

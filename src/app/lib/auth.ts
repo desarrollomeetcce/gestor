@@ -1,6 +1,8 @@
 import { cookies } from 'next/headers';
 import jwt from 'jsonwebtoken';
 
+import { prisma } from '@/app/lib/prisma'
+
 const JWT_SECRET = process.env.JWT_SECRET || 'soutbug-secret-key';
 
 export interface AuthUser {

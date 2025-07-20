@@ -1,6 +1,6 @@
-import { getUserFromCookie } from "@/lib/auth";
-import Navbar from "@/shared/nav-bar";
-
+import { getUserFromCookie } from "@/app/lib/auth";
+import Navbar from "@/app/shared/nav-bar";
+import { prisma } from '@/app/lib/prisma'
 
 export default async function RootLayout({
     children,

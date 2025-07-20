@@ -1,7 +1,7 @@
 // app/(logged)/profiles/actions.ts
 'use server'
-import { prisma } from '@/lib/prisma'
-import { withActionWrapper } from '@/utils/actions'
+import { prisma } from '@/app/lib/prisma'
+import { withActionWrapper } from '@/app/utils/actions'
 
 export const createProfileAction = async (_: any, formData: FormData) => {
   return withActionWrapper(async () => {

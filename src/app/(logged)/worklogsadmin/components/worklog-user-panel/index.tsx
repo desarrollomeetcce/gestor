@@ -5,8 +5,8 @@ import { format } from 'date-fns'
 import { getAssignedWorkLogsByMonth } from '@/app/(logged)/worklogs/application/getHours'
 import { updateWorkLogGroupAction } from '@/app/(logged)/worklogs/application/updateHours'
 
-import MultiselectSearch from '@/shared/multiselect-search'
-import { formatCurrency } from '@/utils/actions'
+import MultiselectSearch from '@/app/shared/multiselect-search'
+import { formatCurrency } from '@/app/utils/actions'
 import { deleteWorkLogGroupAction } from '../../application/delete'
 
 interface Props {

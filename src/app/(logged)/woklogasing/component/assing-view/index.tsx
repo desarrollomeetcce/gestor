@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-import MultiselectSearch from '@/shared/multiselect-search'
+import MultiselectSearch from '@/app/shared/multiselect-search'
 import { assignMultipleWorkLogsAction } from '../../application/assign'
 
 export default function AssignWorkLogsPanel({ users }: { users: { id: number, name: string }[] }) {

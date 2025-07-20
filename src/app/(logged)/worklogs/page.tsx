@@ -1,6 +1,6 @@
 'use server'
 
-import { getSessionUser } from "@/lib/auth";
+import { getSessionUser } from "@/app/lib/auth";
 import WorkLogPage from "./components/work-log-page";
 
 

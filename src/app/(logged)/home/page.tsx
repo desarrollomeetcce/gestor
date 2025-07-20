@@ -1,5 +1,5 @@
-import { getUserFromCookie } from '@/lib/auth';
-import { prisma } from '@/lib/prisma';
+import { getUserFromCookie } from '@/app/lib/auth';
+import { prisma } from '@/app/lib/prisma'
 
 
 export default async function Home() {

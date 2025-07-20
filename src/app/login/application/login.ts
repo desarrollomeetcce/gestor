@@ -1,10 +1,10 @@
 'use server'
 
-import { prisma } from '@/lib/prisma';
+import { prisma } from '@/app/lib/prisma'
 import jwt from 'jsonwebtoken';
 import { cookies } from 'next/headers';
 import bcrypt from 'bcryptjs';
-import { ERROR, SUCCESS } from '@/utils/constants';
+import { ERROR, SUCCESS } from '@/app/utils/constants';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'soutbug-secret-key';
 

@@ -1,5 +1,5 @@
 'use server'
-import { prisma } from '@/lib/prisma'
+import { prisma } from '@/app/lib/prisma'
 import BudgetView from './components/budget-view'
 
 

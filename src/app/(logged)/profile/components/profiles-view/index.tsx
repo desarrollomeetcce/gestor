@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useActionState } from 'react';
 import { createProfileAction, deleteProfileAction, updateProfileAction } from '../../application/crud';
-import MultiselectSearch from '@/shared/multiselect-search';
+import MultiselectSearch from '@/app/shared/multiselect-search';
 
 
 interface Profile {

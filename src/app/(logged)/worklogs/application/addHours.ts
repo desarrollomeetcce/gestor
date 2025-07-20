@@ -1,7 +1,7 @@
 'use server'
 
-import { prisma } from '@/lib/prisma'
-import { withActionWrapper } from '@/utils/actions'
+import { prisma } from '@/app/lib/prisma'
+import { withActionWrapper } from '@/app/utils/actions'
 import { revalidatePath } from 'next/cache'
 
 export async function createWorkLogsAction(_: any, formData: FormData) {

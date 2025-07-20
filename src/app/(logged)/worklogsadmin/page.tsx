@@ -1,5 +1,5 @@
 // app/(admin)/review/page.tsx
-import { prisma } from '@/lib/prisma'
+import { prisma } from '@/app/lib/prisma'
 import ReviewerPanel from './components/worklog-user-panel'
 
 

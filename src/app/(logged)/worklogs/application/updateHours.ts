@@ -1,9 +1,9 @@
 // file: updateWorkLogGroupAction.ts
 'use server'
 
-import { prisma } from '@/lib/prisma'
-import { withActionWrapper } from '@/utils/actions'
-import { getSessionUser } from '@/lib/auth' // Asegúrate de tener esto
+import { prisma } from '@/app/lib/prisma'
+import { withActionWrapper } from '@/app/utils/actions'
+import { getSessionUser } from '@/app/lib/auth' // Asegúrate de tener esto
 import { revalidatePath } from 'next/cache'
 
 export async function updateWorkLogGroupAction(_: any, formData: FormData) {

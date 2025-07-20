@@ -1,6 +1,6 @@
-import { getSessionUser } from "@/lib/auth";
+import { getSessionUser } from "@/app/lib/auth";
 import SharedLinksPage from "./components/shared-links-page";
-
+import { prisma } from '@/app/lib/prisma'
 
 
 export default async function SharedLinksServerPage() {
